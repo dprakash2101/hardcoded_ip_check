@@ -4,18 +4,17 @@ import os
 
 ip_regex = re.compile(r'\b(?:[0-9]{1,3}\.){3}[0-9]{1,3}\b')
 
-# Get directories from the environment variable
+
 directories_to_check = os.getenv("DIRECTORIES", ".").split(",")
 
-# File extensions to check
-extensions_to_check = [".cs", ".py", ".js", ".json"]
+extensions_to_check = [".cs", ".py", ".js", ".json", ".java", ".ts"]
+
 
 files_with_ips = []
 
 def search_file_for_ips(file_path):
     with open(file_path, 'r', encoding='utf-8') as file:
         content = file.read()
-        # Find all IP addresses
         matches = ip_regex.findall(content)
         if matches:
             return True
