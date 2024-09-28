@@ -12,3 +12,6 @@ runs:
   image: 'Dockerfile'  # Reference the Dockerfile directly
   env:
     DIRECTORIES: ${{ inputs.directories }}  # Pass input to the environment
+branding:
+  icon: "search"  
+  color: "#0366d6"  
