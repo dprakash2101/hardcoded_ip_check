@@ -9,8 +9,6 @@ inputs:
 
 runs:
   using: 'docker'
-  image: 'python:3.8-slim'
-  args:
-    - /action/check_hardcoded_ip.py  # Path to your script
+  image: 'Dockerfile'  # Reference the Dockerfile directly
   env:
     DIRECTORIES: ${{ inputs.directories }}  # Pass input to the environment
