@@ -1,0 +1,17 @@
+name: 'Check for Hardcoded IPs'
+description: 'A GitHub Action to find hardcoded IP addresses in files.'
+
+inputs:
+  directories:
+    description: 'Comma-separated list of directories to check (e.g., src,app,source).'
+    required: false
+    default: '.'
+
+runs:
+  using: 'docker'
+  image: 'python:3.8-slim'
+  steps:
+    - name: Check for Hardcoded IPs
+      run: python /action/check_hardcoded_ip.py
+      env:
+        DIRECTORIES: ${{ inputs.directories }}
