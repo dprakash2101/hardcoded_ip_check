@@ -10,8 +10,7 @@ inputs:
 runs:
   using: 'docker'
   image: 'python:3.8-slim'
-  steps:
-    - name: Check for Hardcoded IPs
-      run: python /action/check_hardcoded_ip.py
-      env:
-        DIRECTORIES: ${{ inputs.directories }}
+  args:
+    - /action/check_hardcoded_ip.py  # Path to your script
+  env:
+    DIRECTORIES: ${{ inputs.directories }}  # Pass input to the environment
