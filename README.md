@@ -1,7 +1,6 @@
 # Check for Hardcoded IPs
 
-![Check for Hardcoded IPs Icon](images/icon.jpeg)
-
+<img src="images/icon.jpeg" alt="Check for Hardcoded IPs Icon" style="width: 150px; height: auto;"/>
 
 A GitHub Action to find hardcoded IP addresses in files. This action scans specified directories in your repository for hardcoded IP addresses and helps you maintain code quality and security.
 
