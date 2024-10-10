@@ -11,14 +11,18 @@ user_extensions = os.getenv("EXTENSIONS", "").split(",")
 
 default_extensions = [".cs", ".py", ".js", ".json", ".java", ".ts"]
 
-combine_with_default = os.getenv("COMBINE_EXTENSIONS", "").lower()
+combine_with_default = os.getenv("COMBINE_EXTENSIONS", "false").lower() == "true"
 
-if ((combine_with_default == "true" or combine_with_default == "") and user_extensions != [""]): #If user enters true only files which user have provided will be only verified
-    combine_with_default = True
-elif combine_with_default == "false" :
-    combine_with_default = False
-else:
-    combine_with_default = True  # Default to false if user provides something unexpected
+
+"""
+If user mention false extension types will not be combined other wise they will be combine
+"""
+# if ((combine_with_default == "true" or combine_with_default == "") and user_extensions != [""]): 
+#     combine_with_default = True
+# elif combine_with_default == "false" :
+#     combine_with_default = False
+# else:
+#     combine_with_default = True  # Default to false if user provides something unexpected
 
 # Determine the final list of extensions to check
 if user_extensions == [""]:  # If no user-provided extensions
