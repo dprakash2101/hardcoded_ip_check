@@ -4,14 +4,21 @@ description: 'A GitHub Action to find hardcoded IP addresses in files.'
 inputs:
   directories:
     description: 'Comma-separated list of directories to check (e.g., src,app,source).'
+    required: true
+  extensions:
+    description: 'Comma-separated list of file extensions to check (e.g., .cs,.py,.js).'
     required: false
-    default: '.'
+  combine_extensions:
+    description: 'Set to true if you want to combine the provided extensions with the default ones.'
+    required: false
 
 runs:
   using: 'docker'
   image: 'Dockerfile'  # Reference the Dockerfile directly
   env:
-    DIRECTORIES: ${{ inputs.directories }}  # Pass input to the environment
+    DIRECTORIES: ${{ inputs.directories }}  
+    EXTENSIONS: ${{ inputs.extensions }}  
+    COMBINE_EXTENSIONS: ${{ inputs.combine_extensions }}
 branding:
-  icon: "search"  
+  icon: "images/icon.jpeg"  
   color: "blue"  
