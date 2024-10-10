@@ -18,5 +18,5 @@ runs:
   env:
     DIRECTORIES: ${{ inputs.directories }}  # Pass input to the environment
 branding:
-  icon: "search"  
+  icon: "images/icon.jpeg"  
   color: "blue"  
