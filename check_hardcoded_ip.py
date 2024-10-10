@@ -7,7 +7,30 @@ ip_regex = re.compile(r'\b(?:[0-9]{1,3}\.){3}[0-9]{1,3}\b')
 
 directories_to_check = os.getenv("DIRECTORIES", ".").split(",")
 
-extensions_to_check = [".cs", ".py", ".js", ".json", ".java", ".ts"]
+user_extensions = os.getenv("EXTENSIONS", "").split(",")
+
+default_extensions = [".cs", ".py", ".js", ".json", ".java", ".ts"]
+
+combine_with_default = os.getenv("COMBINE_EXTENSIONS", "").lower()
+
+if ((combine_with_default == "true" or combine_with_default == "") and user_extensions != [""]): #If user enters true only files which user have provided will be only verified
+    combine_with_default = True
+elif combine_with_default == "false" :
+    combine_with_default = False
+else:
+    combine_with_default = True  # Default to false if user provides something unexpected
+
+# Determine the final list of extensions to check
+if user_extensions == [""]:  # If no user-provided extensions
+    extensions_to_check = default_extensions  # Use default extensions
+else:
+    if combine_with_default:
+        extensions_to_check = default_extensions + user_extensions  # Combine defaults + user extensions
+    else:
+        extensions_to_check = user_extensions  # Use only user-provided extensions
+
+# Remove any duplicates in extensions_to_check and strip any extra whitespace
+extensions_to_check = list(set(ext.strip() for ext in extensions_to_check if ext))
 
 
 files_with_ips = []

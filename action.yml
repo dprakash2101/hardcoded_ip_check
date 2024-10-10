@@ -4,8 +4,13 @@ description: 'A GitHub Action to find hardcoded IP addresses in files.'
 inputs:
   directories:
     description: 'Comma-separated list of directories to check (e.g., src,app,source).'
+    required: true
+  extensions:
+    description: 'Comma-separated list of file extensions to check (e.g., .cs,.py,.js).'
     required: false
-    default: '.'
+  combine_extensions:
+    description: 'Set to true if you want to combine the provided extensions with the default ones.'
+    required: false
 
 runs:
   using: 'docker'
