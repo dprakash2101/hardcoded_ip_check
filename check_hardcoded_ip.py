@@ -20,9 +20,9 @@ print(f"Combine with default: {combine_with_default}")
 """
 If user mention false extension types will not be combined other wise they will be combine
 """
-if combine_with_default.tolower() == "true":
+if combine_with_default.lower() == "true":
     combine_with_default = True
-elif combine_with_default.tolower() == "false":
+elif combine_with_default.lower() == "false":
     combine_with_default = False
 else:
     combine_with_default = True
