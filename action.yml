@@ -20,5 +20,6 @@ runs:
     EXTENSIONS: ${{ inputs.extensions }}  
     COMBINE_EXTENSIONS: ${{ inputs.combine_extensions }}
 branding:
-  icon: "images/icon.jpeg"  
+  icon: "images/icon.jpeg"
   color: "blue"  
+  label: "Check for Hardcoded IPs"  
