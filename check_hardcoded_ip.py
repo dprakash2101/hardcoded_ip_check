@@ -25,7 +25,9 @@ if combine_with_default == "true":
 elif combine_with_default == "false":
     combine_with_default = False
 else:
-    combine_with_default = True 
+    combine_with_default = True
+print(f"Combine with default value: {combine_with_default}")
+
 
 # Determine the final list of extensions to check
 if user_extensions == [""]:  # If no user-provided extensions
