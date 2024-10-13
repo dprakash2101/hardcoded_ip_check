@@ -69,8 +69,7 @@ jobs:
           combine_extensions: 'true'  # Set to true to combine with default extensions
 
 ```
-## License
-This project is licensed under the MIT License. See the LICENSE file for details.
+
 
 ## License
 
